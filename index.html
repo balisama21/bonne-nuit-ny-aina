@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lettre du soir pour Aina 💌</title>
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+      font-family: 'Quicksand', sans-serif;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: transparent url('https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/media/star.png') repeat top center;
+      animation: stars 50s linear infinite;
+    }
+
+    @keyframes stars {
+      0% { background-position: 0 0; }
+      100% { background-position: -10000px 5000px; }
+    }
+
+    .flowers {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: transparent url('https://cdn.pixabay.com/photo/2013/07/12/13/59/flower-147989_960_720.png') repeat-x;
+      background-size: 100px;
+      animation: float 60s linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes float {
+      0% { background-position: 0 0; }
+      100% { background-position: 10000px 0; }
+    }
+
+    .envelope-container {
+      width: 300px;
+      height: 220px;
+      background: url('https://i.imgur.com/eMZ4vBf.gif') no-repeat center/contain;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .letter {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      max-width: 700px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 20px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      animation: fadeIn 2s ease forwards;
+      position: relative;
+      z-index: 3;
+    }
+
+    h1 {
+      font-family: 'Parisienne', cursive;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #ffcdd2;
+    }
+
+    .message {
+      font-size: 1.2rem;
+      white-space: pre-wrap;
+      line-height: 1.8;
+      font-family: 'Parisienne', cursive;
+      color: #ffe6e6;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pen {
+      width: 40px;
+      height: 40px;
+      background: url('https://cdn-icons-png.flaticon.com/512/1198/1198293.png') no-repeat center/contain;
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation: write 45s linear forwards;
+    }
+
+    @keyframes write {
+      0% { top: 0; left: 0; opacity: 1; }
+      100% { top: 100%; left: 100%; opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="flowers"></div>
+
+  <div class="envelope-container" id="envelope"></div>
+
+  <div class="letter" id="letter">
+    <h1>Lettre pour Aina 🌙</h1>
+    <div class="message">
+      <div class="pen"></div>
+Ma chère Aina,
+
+Il est tard, la lune s’est levée, et je pense à toi.
+
+Il n’y a que quelques jours que nos mots se croisent… mais dans ce court temps, tu as déjà laissé une belle trace.
+
+Ce soir, je t’envoie cette petite lettre, pour te souhaiter une douce nuit.
+Une nuit pleine de sérénité, de lumière intérieure, et de rêves paisibles.
+
+J’espère que le silence de la nuit te bercera,
+que les étoiles viendront chuchoter de belles choses à ton oreille…
+
+Et peut-être que demain, on s’écrira encore… un peu plus proches qu’hier.
+
+Bonne nuit Aina. Que ton sommeil soit beau comme ton sourire.
+
+– Balsama 💫
+    </div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/10/audio_74e8dbbfa0.mp3" type="audio/mpeg">
+    Votre navigateur ne supporte pas l'audio.
+  </audio>
+
+  <script>
+    const envelope = document.getElementById('envelope');
+    const letter = document.getElementById('letter');
+
+    envelope.addEventListener('click', () => {
+      envelope.style.display = 'none';
+      letter.style.display = 'flex';
+    });
+  </script>
+</body>
+</html>
